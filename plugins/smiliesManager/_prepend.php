@@ -20,6 +20,10 @@
 #
 # ***** END LICENSE BLOCK *****
 
+if (!defined('DC_RC_PATH')) {
+    return;
+}
+
 
 class smiliesManager
 {

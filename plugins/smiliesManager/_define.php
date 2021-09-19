@@ -19,6 +19,10 @@
 #
 # ***** END LICENSE BLOCK *****
 
+if (!defined('DC_RC_PATH')) {
+    return;
+}
+
 $this->registerModule(
 	/* Name */			__('Smilies Manager'),
 	/* Description*/		__('Manage and display your smilies'),
