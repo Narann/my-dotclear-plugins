@@ -27,39 +27,5 @@ $this->registerModule(
 	/* Permissions */		'usage,contentadmin'
 );
 
-class smiliesManager
-{
-	public static function getSmilies($theme = '') {
-		global $core;
-		
-		if (empty($theme)) {
-			$theme = $core->blog->settings->theme;
-			if (!file_exists($core->blog->themes_path.'/'.$theme.'/smilies/smilies.txt') || filesize($core->blog->themes_path.'/'.$theme.'/smilies/smilies.txt') < 1) {
-				$theme = 'default';
-			}
-		}
-		
-		$config = unserialize($core->blog->settings->smiliesmanager_smiliesontoolbar);
-		
-		$definition = $core->blog->themes_path.'/'.$theme.'/smilies/smilies.txt';
-		$base_url = $core->blog->settings->themes_url.'/'.$theme.'/smilies/';
-		
-		$res = array();
-		
-		if (file_exists($definition)) {
-			
-			$def = file($definition);
-			
-			foreach ($def as $v) {
-				$v = trim($v);
-				if (preg_match('|^([^\t]*)[\t]+(.*)$|', $v, $matches)) {
-					$res[] = array('code' => $matches[1], 'url' => $base_url.$matches[2], 'onToolbar' => !is_array($config) || in_array($matches[1], $config));
-				}
-			}
-		}
-		
-		return $res;
-	}
-}
-
 ?>
+

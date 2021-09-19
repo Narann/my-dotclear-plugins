@@ -92,7 +92,7 @@ if (isset($_POST['autoEditTpl_uninstall']) && !empty($_POST['autoEditTpl_theme']
 		if (!empty($_POST['editSmilies_create_filename'])) {
 			$smilies[] = array(
 				'code' => trim(stripslashes($_POST['editSmilies_create_smileyCode'])),
-				'url' => $core->blog->settings->themes_url.'/'.$theme.'/smilies/'.stripslashes($_POST['editSmilies_create_filename']));
+				'url' => $core->blog->settings->system->themes_url.'/'.$theme.'/smilies/'.stripslashes($_POST['editSmilies_create_filename']));
 			if (smiliesManagerAdmin::setSmilies($theme, $smilies)) {
 				$infos[] = __('Smiley created successfully');
 			} else {
@@ -102,7 +102,7 @@ if (isset($_POST['autoEditTpl_uninstall']) && !empty($_POST['autoEditTpl_theme']
 			if (copy($_FILES['editSmilies_create_uploadFile']['tmp_name'], $core->blog->themes_path.'/'.$theme.'/smilies/'.$_FILES['editSmilies_create_uploadFile']['name'])) {
 				$smilies[] = array(
 					'code' => trim(stripslashes($_POST['editSmilies_create_smileyCode'])),
-					'url' => $core->blog->settings->themes_url.'/'.$theme.'/smilies/'.stripslashes($_FILES['editSmilies_create_uploadFile']['name']));
+					'url' => $core->blog->settings->system->themes_url.'/'.$theme.'/smilies/'.stripslashes($_FILES['editSmilies_create_uploadFile']['name']));
 				if (smiliesManagerAdmin::setSmilies($theme, $smilies)) {
 					$infos[] = __('Smiley created successfully');
 				} else {
@@ -122,7 +122,7 @@ if (isset($_POST['autoEditTpl_uninstall']) && !empty($_POST['autoEditTpl_theme']
 			if (!empty($_POST['editSmilies_edit_filename'])) {
 				$smilies[$_POST['editSmilies_edit_smileyId']] = array(
 					'code' => trim(stripslashes($_POST['editSmilies_edit_smileyCode'])),
-					'url' => $core->blog->settings->themes_url.'/'.$theme.'/smilies/'.stripslashes($_POST['editSmilies_edit_filename']));
+					'url' => $core->blog->settings->system->themes_url.'/'.$theme.'/smilies/'.stripslashes($_POST['editSmilies_edit_filename']));
 				if (smiliesManagerAdmin::setSmilies($theme, $smilies)) {
 					$infos[] = __('Smiley edited successfully');
 				} else {
@@ -133,7 +133,7 @@ if (isset($_POST['autoEditTpl_uninstall']) && !empty($_POST['autoEditTpl_theme']
 				if (copy($_FILES['editSmilies_edit_uploadFile']['tmp_name'], $core->blog->themes_path.'/'.$theme.'/smilies/'.$_FILES['editSmilies_edit_uploadFile']['name'])) {
 					$smilies[$_POST['editSmilies_edit_smileyId']] = array(
 						'code' => trim(stripslashes($_POST['editSmilies_edit_smileyCode'])),
-						'url' => $core->blog->settings->themes_url.'/'.$theme.'/smilies/'.stripslashes($_FILES['editSmilies_edit_uploadFile']['name']));
+						'url' => $core->blog->settings->system->themes_url.'/'.$theme.'/smilies/'.stripslashes($_FILES['editSmilies_edit_uploadFile']['name']));
 					if (smiliesManagerAdmin::setSmilies($theme, $smilies)) {
 						$infos[] = __('Smiley edited successfully');
 					} else {
